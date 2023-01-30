@@ -8,6 +8,7 @@ PATH = os.path.join(os.getcwd(), 'fixtures')
 
 def create_csv(df):
     df.to_csv(os.path.join(PATH, sys.argv[len(sys.argv)-1]), index=False)
+    print(f'New file {sys.argv[len(sys.argv)-1]} saved at location {os.path.join(PATH, sys.argv[len(sys.argv)-1])}')
 
 
 def get_files():
@@ -51,6 +52,7 @@ def create_final_dataframe(files, file_names):
         temp_df['filename'] = [file_names[i]]*len(temp_df)
         df = pd.concat([df, temp_df])
     
+    print(df)
     return df
 
 
